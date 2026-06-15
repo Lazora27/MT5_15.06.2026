@@ -1,0 +1,8 @@
+# Compiled Executables
+*.ex5
+
+# Logs
+*.log
+
+# Results (Generated massive files)
+Results/
