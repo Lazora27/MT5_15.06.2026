@@ -46,9 +46,15 @@ rm python_installer.exe
 echo "[*] Lade MetaTrader 5 Setup herunter..."
 wget https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/mt5setup.exe -O mt5setup.exe
 echo "[*] Installiere MT5 (kann einen Moment dauern)..."
-wine mt5setup.exe /auto
+wine mt5setup.exe /auto &
+# Warten bis die Installation fertig ist (MT5 Installer lädt Dateien aus dem Internet)
+sleep 60
+# Der MT5 Installer startet am Ende automatisch das Terminal, was das Skript blockiert.
+# Wir killen daher alle Wine-Prozesse, um das Setup abzuschließen!
+echo "[*] Beende MT5 Installer und Terminal..."
+wineserver -k
+sleep 5
 rm mt5setup.exe
-sleep 10
 
 # 7. Python Pakete in Wine installieren (pandas, MetaTrader5)
 echo "[*] Installiere Python-Module (pandas, MetaTrader5) in Wine..."
