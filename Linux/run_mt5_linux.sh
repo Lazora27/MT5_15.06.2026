@@ -6,7 +6,7 @@ echo " Starte MT5 Headless Backtest (via Xvfb & Wine)  "
 echo "================================================="
 
 # Pfade anpassen (abhängig davon, wo die Repos geklont wurden)
-MT5_REPO="$HOME/Trading/MT5_15.06.2026"
+MT5_REPO="$HOME/MT5_Project"
 PYTHON_SCRIPT="$MT5_REPO/Python/Optimization/run_mt5_master.py"
 
 # Überprüfen, ob das Repo existiert
