@@ -24,6 +24,13 @@ sudo apt install --install-recommends winehq-stable -y
 # 4. Wine Prefix konfigurieren (Windows 10 Mode)
 export WINEPREFIX=~/.wine
 export WINEARCH=win64
+
+echo "[*] Starte Xvfb (Virtueller Monitor) für die Installation..."
+Xvfb :99 -screen 0 1024x768x24 &
+XVFB_PID=$!
+export DISPLAY=:99
+sleep 3
+
 echo "[*] Initialisiere Wine..."
 winecfg /v win10
 sleep 5 # Warten bis winecfg abgeschlossen ist
